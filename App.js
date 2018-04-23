@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, Image } from 'react-native';
+import { View, Text, Button, Image, StyleSheet } from 'react-native';
 
 
 export default class App extends React.Component {
@@ -59,12 +59,21 @@ export default class App extends React.Component {
 	    return (
 	    	<View>
 	    		<Top></Top>
+	    		<View style={styles.panelActions}>
+	    			<View style={styles.choiceBtn}>
+			    		<Button title='rock' onPress={ () => this.game('rock') }></Button>
+			    	</View>
+			    	<View style={styles.choiceBtn}>
+			      		<Button title='paper' onPress={ () => this.game('paper') }></Button>
+			      	</View>
+			      	<View style={styles.choiceBtn}>
+		    	  		<Button title='scissors' onPress={ () => this.game('scissors') }></Button>
+		    	  	</View>
+	    		</View>
 		      	<Text>Computer's choice: {this.state.computerChoice}</Text>
 	    	  	<Text>User's choice: {this.state.userChoice}</Text>
 	      		<Text>Result: {this.state.result}</Text>
-	      		<Button title='rock' onPress={ () => this.game('rock') }></Button>
-	      		<Button title='paper' onPress={ () => this.game('paper') }></Button>
-	      		<Button title='scissors' onPress={ () => this.game('scissors') }></Button>
+	      		
 	      	</View>
 	    );
   	}
@@ -79,4 +88,14 @@ class Top extends React.Component{
 		);
 	}
 }
+
+const styles = StyleSheet.create({
+	choiceBtn: {
+		width: 90
+	},
+	panelActions: {
+		flexDirection: 'row',
+		justifyContent: 'space-between'
+	}
+});
 
