@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Image } from 'react-native';
 
 
 export default class App extends React.Component {
@@ -58,6 +58,7 @@ export default class App extends React.Component {
   	render() {
 	    return (
 	    	<View>
+	    		<Top></Top>
 		      	<Text>Computer's choice: {this.state.computerChoice}</Text>
 	    	  	<Text>User's choice: {this.state.userChoice}</Text>
 	      		<Text>Result: {this.state.result}</Text>
@@ -69,4 +70,13 @@ export default class App extends React.Component {
   	}
 }
 
+class Top extends React.Component{
+	render(){
+		return(
+			<View>
+				<Image source={ require('./imgs/jokenpo.png') } />
+			</View>
+		);
+	}
+}
 
