@@ -6,11 +6,10 @@ export default class App extends React.Component {
 
   	constructor(props){
 		super(props);
-  		this.state = {userChoice: '', computerChoice: ''};
+  		this.state = {userChoice: '', computerChoice: '', result: ''};
   	}
 
   	game(userChoice){
-  		//random number >=0 and < 3
   		let randomNumber = Math.floor(Math.random()*3);
   		let computerChoice = '';
   		switch(randomNumber){
@@ -24,7 +23,36 @@ export default class App extends React.Component {
 	  			computerChoice = 'scissors';
   				break;
   		}
-  		this.setState({userChoice, computerChoice});
+
+  		//defining game result
+  		let result = '';
+  		if(computerChoice === 'rock'){
+  			if(userChoice === 'rock')
+  				result = 'Draw'
+  			else if(userChoice === 'paper')
+  				result = 'User Win!'
+  			else
+  				result = 'Computer Win!'
+  		}
+  		else if(computerChoice === 'paper'){
+  			if(userChoice === 'paper')
+  				result = 'Draw'
+  			else if(userChoice === 'scissors')
+  				result = 'User Win!'
+  			else
+  				result = 'Computer Win!'
+  		}
+  		else if(computerChoice === 'scissors'){
+  			if(userChoice === 'scissors')
+  				result = 'Draw'
+  			else if(userChoice === 'rock')
+  				result = 'User Win!'
+  			else
+  				result = 'Computer Win!'
+  		}
+
+  		this.setState({userChoice, computerChoice, result});
+
   	}
 
   	render() {
@@ -32,7 +60,7 @@ export default class App extends React.Component {
 	    	<View>
 		      	<Text>Computer's choice: {this.state.computerChoice}</Text>
 	    	  	<Text>User's choice: {this.state.userChoice}</Text>
-	      		<Text>Result:</Text>
+	      		<Text>Result: {this.state.result}</Text>
 	      		<Button title='rock' onPress={ () => this.game('rock') }></Button>
 	      		<Button title='paper' onPress={ () => this.game('paper') }></Button>
 	      		<Button title='scissors' onPress={ () => this.game('scissors') }></Button>
