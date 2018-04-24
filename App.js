@@ -30,25 +30,25 @@ export default class App extends React.Component {
   			if(userChoice === 'rock')
   				result = 'Draw'
   			else if(userChoice === 'paper')
-  				result = 'User Win!'
+  				result = 'You Win!'
   			else
-  				result = 'Computer Win!'
+  				result = 'You Lose!'
   		}
   		else if(computerChoice === 'paper'){
   			if(userChoice === 'paper')
   				result = 'Draw'
   			else if(userChoice === 'scissors')
-  				result = 'User Win!'
+  				result = 'You Win!'
   			else
-  				result = 'Computer Win!'
+  				result = 'You Lose!'
   		}
   		else if(computerChoice === 'scissors'){
   			if(userChoice === 'scissors')
   				result = 'Draw'
   			else if(userChoice === 'rock')
-  				result = 'User Win!'
+  				result = 'You Win!'
   			else
-  				result = 'Computer Win!'
+  				result = 'You Lose!'
   		}
 
   		this.setState({userChoice, computerChoice, result});
@@ -70,9 +70,11 @@ export default class App extends React.Component {
 		    	  		<Button title='scissors' onPress={ () => this.game('scissors') }></Button>
 		    	  	</View>
 	    		</View>
-		      	<Text>Computer's choice: {this.state.computerChoice}</Text>
-	    	  	<Text>User's choice: {this.state.userChoice}</Text>
-	      		<Text>Result: {this.state.result}</Text>
+	    		<View style={styles.stage}>
+		      		<Text style={styles.txtResult}>{this.state.result}</Text>
+		      		<Icon player='computer' choice={this.state.computerChoice}></Icon>
+		    	  	<Icon player='you' choice={this.state.userChoice}></Icon>
+		      	</View>
 	      		
 	      	</View>
 	    );
@@ -89,6 +91,37 @@ class Top extends React.Component{
 	}
 }
 
+class Icon extends React.Component{
+	render(){
+		if(this.props.choice === 'rock'){
+			return(
+				<View style={styles.icons}>
+					<Text style={styles.textPlayer}>{this.props.player}</Text>
+					<Image source={require('./imgs/rock.png')} />
+				</View>
+			)
+		}
+		else if(this.props.choice === 'paper'){
+			return(
+				<View style={styles.icons}>
+					<Text style={styles.textPlayer}>{this.props.player}</Text>
+					<Image source={require('./imgs/paper.png')} />
+				</View>
+			)
+		}
+		else if(this.props.choice === 'scissors'){
+			return(
+				<View style={styles.icons}>
+					<Text style={styles.textPlayer}>{this.props.player}</Text>
+					<Image source={require('./imgs/scissors.png')} />
+				</View>
+			)
+		}
+		else
+			return false
+	}
+}
+
 const styles = StyleSheet.create({
 	choiceBtn: {
 		width: 90
@@ -96,6 +129,23 @@ const styles = StyleSheet.create({
 	panelActions: {
 		flexDirection: 'row',
 		justifyContent: 'space-between'
+	},
+	stage: {
+		alignItems: 'center',
+		marginTop: 10
+	},
+	txtResult: {
+		fontSize: 25,
+		fontWeight: 'bold',
+		color: 'red'
+	},
+	icons: {
+		alignItems: 'center',
+		paddingTop: 20,
+		marginBottom: 20
+	},
+	textPlayer:{
+		fontSize: 18
 	}
 });
 
