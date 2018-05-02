@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Button, Image, StyleSheet } from 'react-native';
+import Top from './src/components/top'
 
 
 export default class App extends React.Component {
@@ -81,15 +82,7 @@ export default class App extends React.Component {
   	}
 }
 
-class Top extends React.Component{
-	render(){
-		return(
-			<View>
-				<Image source={ require('./imgs/jokenpo.png') } />
-			</View>
-		);
-	}
-}
+
 
 class Icon extends React.Component{
 	render(){
