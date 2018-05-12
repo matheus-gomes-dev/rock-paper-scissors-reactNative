@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, Button, Image, StyleSheet } from 'react-native';
-import Top from './src/components/top'
+import { View, Text, Button, StyleSheet } from 'react-native';
+import Top from './src/components/top';
+import Icon from './src/components/icon';
 
 
 export default class App extends React.Component {
@@ -83,38 +84,6 @@ export default class App extends React.Component {
 }
 
 
-
-class Icon extends React.Component{
-	render(){
-		if(this.props.choice === 'rock'){
-			return(
-				<View style={styles.icons}>
-					<Text style={styles.textPlayer}>{this.props.player}</Text>
-					<Image source={require('./imgs/rock.png')} />
-				</View>
-			)
-		}
-		else if(this.props.choice === 'paper'){
-			return(
-				<View style={styles.icons}>
-					<Text style={styles.textPlayer}>{this.props.player}</Text>
-					<Image source={require('./imgs/paper.png')} />
-				</View>
-			)
-		}
-		else if(this.props.choice === 'scissors'){
-			return(
-				<View style={styles.icons}>
-					<Text style={styles.textPlayer}>{this.props.player}</Text>
-					<Image source={require('./imgs/scissors.png')} />
-				</View>
-			)
-		}
-		else
-			return false
-	}
-}
-
 const styles = StyleSheet.create({
 	choiceBtn: {
 		width: 90
@@ -131,14 +100,6 @@ const styles = StyleSheet.create({
 		fontSize: 25,
 		fontWeight: 'bold',
 		color: 'red'
-	},
-	icons: {
-		alignItems: 'center',
-		paddingTop: 20,
-		marginBottom: 20
-	},
-	textPlayer:{
-		fontSize: 18
 	}
 });
 
