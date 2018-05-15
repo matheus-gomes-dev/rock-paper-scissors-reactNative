@@ -1,7 +1,7 @@
 # rock-paper-scissors-reactNative
 The rock-paper-scissors game built with React Native for mobile devices
 
-<img src="https://github.com/matheus-lima92/rock-paper-scissors-reactNative/blob/master/imgs/jokenpo.png?raw=true" width="180" height="320">
+<img src="https://github.com/matheus-lima92/rock-paper-scissors-reactNative/blob/master/imgs/print_jokenpo.png?raw=true" width="180" height="320">
 
 
 # Installation
